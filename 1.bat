@@ -4,14 +4,35 @@ cls
 echo Moving exported .m2 from wow.export to txid for converting
 xcopy /s /y /q "wow.export\*.m2" "Converting Tools\TXID\"
 echo.
-echo Removing TXID from .m2 files...
+echo Removing TXID from .m2 files
 cd  "Converting Tools\TXID" &  for /r %%i in (*.m2) do FixTXID.exe "%%i"
 echo.
 echo Moving patched .m2 files back to wow.export folder
 xcopy /s /y /q "%CD%\*.m2" "..\..\wow.export\"
 echo.
 echo TXID removed!
+echo.
+
+echo Opening MultiConverter...
+cd "..\MultiConverter" & start /b /wait "" "MultiConverter_v0.0.14.exe"
+echo. 
+echo MultiConverter finished!
+echo.
+
+echo Moving .m2 files from wow.export to patch-4.mpq in the wow folder
+xcopy /s /e /y /q "..\..\wow.export\*.m2" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq"
+echo.
+echo Moving .blp files from wow.export to patch-4.mpq in the wow folder
+xcopy /s /e /y /q "..\..\wow.export\*.blp" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq"
+echo.
+echo Moving .skin files from wow.export to patch-4.mpq in the wow folder
+xcopy /s /e /y /q "..\..\wow.export\*.skin" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq"
+echo.
+echo Moving finished!
 pause
+
+
+
 
 @REM echo Running sql scripts...
 @REM mysql --login-path=local < C:\Users\Fischer\Documents\GitHub\azerothcore-scripts\retroport\items.sql acore_world && echo Command successfully executed - item_template.
