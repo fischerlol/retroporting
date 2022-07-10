@@ -29,21 +29,23 @@ echo Moving .skin files from wow.export to patch-4.mpq in the wow folder
 xcopy /s /e /y /q "..\..\wow.export\*.skin" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq"
 echo.
 echo Moving finished!
+echo.
+
+rem need to automate dbc entry
+
+echo Running sql scripts...
+mysql --login-path=local < C:\Users\Fischer\Documents\GitHub\azerothcore-scripts\retroport\items.sql acore_world && echo Command successfully executed - item_template.
+mysql --login-path=local < C:\Users\Fischer\Documents\GitHub\azerothcore-scripts\retroport\item-dbc.sql dbc && echo Command successfully executed - item.dbc.
+mysql --login-path=local < C:\Users\Fischer\Documents\GitHub\azerothcore-scripts\retroport\itemdisplayinfo-dbc.sql dbc && echo Command successfully executed - itemdisplayinfo.dbc.
+echo.
+
+echo Running headless exporter for WoW Spell Editor...
+cd "..\Spell Editor\" & start /b /wait "" "HeadlessExport.exe"
+echo.
 pause
 
 
 
-
-@REM echo Running sql scripts...
-@REM mysql --login-path=local < C:\Users\Fischer\Documents\GitHub\azerothcore-scripts\retroport\items.sql acore_world && echo Command successfully executed - item_template.
-@REM mysql --login-path=local < C:\Users\Fischer\Documents\GitHub\azerothcore-scripts\retroport\item-dbc.sql dbc && echo Command successfully executed - item.dbc.
-@REM mysql --login-path=local < C:\Users\Fischer\Documents\GitHub\azerothcore-scripts\retroport\itemdisplayinfo-dbc.sql dbc && echo Command successfully executed - itemdisplayinfo.dbc.
-@REM echo.
-
-@REM C:
-@REM echo Running headless exporter for WoW Spell Editor...
-@REM cd "C:\Users\Fischer\Documents\GitHub\Spelleditor - dbc-sql\" & start /b /wait "" "C:\Users\Fischer\Documents\GitHub\Spelleditor - dbc-sql\HeadlessExport.exe"
-@REM echo.
 
 @REM if not exist "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\DBFilesClient" mkdir "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\DBFilesClient"
 @REM xcopy /s /e /y /q "C:\Users\Fischer\wow.export" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq"
