@@ -172,7 +172,7 @@ goto main
 
 :move_files
 cls
-cd %default_path% echo Moving .dbc files from WoW Spell Editor Export to patch-4.mpq in the wow folder
+cd %default_path% & echo Moving .dbc files from WoW Spell Editor Export to patch-4.mpq in the wow folder
 xcopy /s /y /q "Converting Tools\Spell Editor\Export\*.dbc" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\DBFilesClient"
 echo.
 echo Moving .m2 files from wow.export to patch-4.mpq in the wow folder
