@@ -194,6 +194,8 @@ cls
 if not exist "E:\World of Warcraft 3.3.5a\Cache" echo Cache not present.
 if exist "E:\World of Warcraft 3.3.5a\Cache" rmdir /s /q "E:\World of Warcraft 3.3.5a\Cache" && echo Cache deleted.
 echo.
+pause>nul|set/p = Cache deleted! Press any key to return to the menu...
+goto main
 
 :wow_export
 cls
