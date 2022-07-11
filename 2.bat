@@ -6,9 +6,9 @@ set default_path=%cd%
 :main
 cls
 echo.
-echo ......................................................
-echo PRESS 1, 2, 3, 4, 5, 6 to select your task, or 7 to EXIT.
-echo ......................................................
+echo ............................................................
+echo PRESS 1, 2, 3, 4, 5, 6, 7 to select your task, or 8 to EXIT.
+echo ............................................................
 echo.
 echo 1 - Open MultiConverter (GUI)
 echo 2 - Convert PNG to BLP
@@ -16,17 +16,19 @@ echo 3 - Run SQL queries and Headless Exporter
 echo 4 - Move the converted files to a mpq patch
 echo 5 - Run steps 1-4
 echo 6 - Remove exported files from wow.export folder
+echo 7 - Clear cache
 echo 7 - EXIT
 echo.
 
-set /p m=Type 1, 2, 3, 4, 5, 6 or 7 then press ENTER:
+set /p m=Type 1, 2, 3, 4, 5, 6, 7 or 8 then press ENTER:
 if %m%==1 goto multiconverter
 if %m%==2 goto png_to_blp
 if %m%==3 goto sql_queries
 if %m%==4 goto move_files
 if %m%==5 goto all
 if %m%==6 goto wow_export
-if %m%==7 goto eof
+if %m%==7 goto cache
+if %m%==8 goto eof
 
 :all
 goto multiconverter_all
@@ -92,7 +94,7 @@ cd %default_path% & cd "Converting Tools\Spell Editor\" & start /b /wait "" "Hea
 echo.
 
 :move_files_all
-cd %default_path% echo Moving .dbc files from WoW Spell Editor Export to patch-4.mpq in the wow folder
+cd %default_path% & echo Moving .dbc files from WoW Spell Editor Export to patch-4.mpq in the wow folder
 xcopy /s /y /q "Converting Tools\Spell Editor\Export\*.dbc" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\DBFilesClient"
 echo.
 echo Moving .m2 files from wow.export to patch-4.mpq in the wow folder
@@ -186,6 +188,12 @@ xcopy /s /e /y /q "wow.export\*.skin" "E:\World of Warcraft 3.3.5a\Data\patch-4.
 echo.
 pause>nul|set/p = Files moved! Press any key to return to the menu...
 goto main
+
+:cache
+cls
+if not exist "E:\World of Warcraft 3.3.5a\Cache" echo Cache not present.
+if exist "E:\World of Warcraft 3.3.5a\Cache" rmdir /s /q "E:\World of Warcraft 3.3.5a\Cache" && echo Cache deleted.
+echo.
 
 :wow_export
 cls
