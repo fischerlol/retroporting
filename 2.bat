@@ -17,7 +17,7 @@ echo 4 - Move the converted files to a mpq patch
 echo 5 - Run steps 1-4
 echo 6 - Remove exported files from wow.export folder
 echo 7 - Clear cache
-echo 7 - EXIT
+echo 8 - EXIT
 echo.
 
 set /p m=Type 1, 2, 3, 4, 5, 6, 7 or 8 then press ENTER:
