@@ -192,7 +192,7 @@ goto main
 :cache
 cls
 if exist "E:\World of Warcraft 3.3.5a\Cache\" (
-    rmdir /s /q "E:\World of Warcraft 3.3.5a\Cache" && echo Cache deleted.
+    rmdir /s /q "E:\World of Warcraft 3.3.5a\Cache"
 ) else (
     echo Cache not present.
 )
