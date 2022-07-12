@@ -10,7 +10,7 @@ echo ............................................................
 echo PRESS 1, 2, 3, 4, 5, 6, 7 to select your task, or 8 to EXIT.
 echo ............................................................
 echo.
-echo 1 - Run TXID and Open MultiConverter (GUI)
+echo 1 - Run TXID and MultiConverter
 echo 2 - Convert PNG to BLP
 echo 3 - Run SQL queries and Headless Exporter
 echo 4 - Move the converted files to a mpq patch
@@ -35,24 +35,24 @@ goto multiconverter_all
 goto png_to_blp_all
 goto sql_queries_all
 goto move_files_all
-pause>nul|set/p = Steps 1-4 have finished running! Press any key to return to the menu ...
-goto main
+goto cache_all
 
 :multiconverter_all
 cls
 cd %default_path%
-echo Moving files from wow.export to txid
-xcopy /s /y /q "wow.export\*.m2" "Converting Tools\TXID\"
-cd "Converting Tools\TXID\" &  for /r %%i in (*.m2) do FixTXID.exe "%%i"
+echo Moving files from wow.export to multiconverter
 echo.
-echo Moving files back from txid to wow.export
+xcopy /s /y /q "wow.export\*.m2" "Converting Tools\MultiConverter\"
+xcopy /s /y /q "wow.export\*.skin" "Converting Tools\MultiConverter\"
+echo.
+cd "Converting Tools\MultiConverter\" &  for /r %%i in (*.m2) do FixTXID.exe "%%i"
+echo.
+for /r %%a in (*.m2) do echo enter | "MultiConverter_Console.exe" "%%a"
+echo.
+echo Moving files back from multiconverter to wow.export
 cd %default_path% & echo.
-xcopy /s /e /y /q "Converting Tools\TXID\*.m2" "wow.export\"
-echo.
-cd %default_path% & cd "Converting Tools\MultiConverter"
-echo Opening MultiConverter and accompanying folder...
-start "" "..\..\wow.export\"
-start /b /wait "" "MultiConverter.exe"
+xcopy /s /e /y /q "Converting Tools\MultiConverter\*.m2" "wow.export\"
+xcopy /s /e /y /q "Converting Tools\MultiConverter\*.skin" "wow.export\"
 echo.
 
 :png_to_blp_all
@@ -115,24 +115,33 @@ echo.
 echo Moving .skin files from wow.export to patch-4.mpq in the wow folder
 xcopy /s /e /y /q "wow.export\*.skin" "E:\World of Warcraft 3.3.5a\Data\patch-4.mpq\"
 echo.
-pause>nul|set/p = Steps 1-4 finished! Press any key to return to the menu...
+
+:cache_all
+cls
+if exist "E:\World of Warcraft 3.3.5a\Cache\" (
+    rmdir /s /q "E:\World of Warcraft 3.3.5a\Cache"
+) else (
+    echo Cache not present.
+)
+pause>nul|set/p = Steps 1-4 + cache finished! Press any key to return to the menu...
 goto main
 
 :multiconverter
 cls
 cd %default_path%
-echo Moving files from wow.export to txid
-xcopy /s /y /q "wow.export\*.m2" "Converting Tools\TXID\"
-cd "Converting Tools\TXID\" &  for /r %%i in (*.m2) do FixTXID.exe "%%i"
+echo Moving files from wow.export to multiconverter
 echo.
-echo Moving files back from txid to wow.export
+xcopy /s /y /q "wow.export\*.m2" "Converting Tools\MultiConverter\"
+xcopy /s /y /q "wow.export\*.skin" "Converting Tools\MultiConverter\"
+echo.
+cd "Converting Tools\MultiConverter\" &  for /r %%i in (*.m2) do FixTXID.exe "%%i"
+echo.
+for /r %%a in (*.m2) do echo enter | "MultiConverter_Console.exe" "%%a"
+echo.
+echo Moving files back from multiconverter to wow.export
 cd %default_path% & echo.
-xcopy /s /e /y /q "Converting Tools\TXID\*.m2" "wow.export\"
-echo.
-cd %default_path% & cd "Converting Tools\MultiConverter"
-echo Opening MultiConverter and accompanying folder...
-start "" "..\..\wow.export\"
-start /b /wait "" "MultiConverter.exe"
+xcopy /s /e /y /q "Converting Tools\MultiConverter\*.m2" "wow.export\"
+xcopy /s /e /y /q "Converting Tools\MultiConverter\*.skin" "wow.export\"
 echo.
 pause>nul|set/p = MultiConverter finished! Press any key to return to the menu...
 goto main

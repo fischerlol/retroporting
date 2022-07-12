@@ -76,7 +76,6 @@ set @quality_epic = 4;
 
 DELIMITER //
 
--- create item procedure
 DROP PROCEDURE IF EXISTS `create_item` //
 CREATE PROCEDURE create_item(IN entry MEDIUMINT(7), IN name VARCHAR(255),  IN description VARCHAR(255), IN class TINYINT(3), IN subclass TINYINT(3), IN displayid MEDIUMINT(7), IN inventorytype TINYINT(3), IN sheath TINYINT(3), IN quality TINYINT(3), IN itemlevel SMALLINT(5), IN requiredlevel TINYINT(3), IN flags INT(10), IN material TINYINT(10))
 BEGIN
@@ -84,70 +83,60 @@ BEGIN
       (entry, name, description, class, subclass, displayid, inventorytype, sheath, quality, itemlevel, requiredlevel, flags, material);
 END//
 
--- create polearm procedure
 DROP PROCEDURE IF EXISTS `create_polearm` //
 CREATE PROCEDURE create_polearm(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_polearm, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create two-hand axe procedure
 DROP PROCEDURE IF EXISTS `create_two_hand_axe` //
 CREATE PROCEDURE create_two_hand_axe(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_axe_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create two-hand mace procedure
 DROP PROCEDURE IF EXISTS `create_two_hand_mace` //
 CREATE PROCEDURE create_two_hand_mace(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @sublcass_mace_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create two-hand sword procedure
 DROP PROCEDURE IF EXISTS `create_two_hand_sword` //
 CREATE PROCEDURE create_two_hand_sword(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_sword_two_hand, displayid, @inventorytype_two_hand, @sheath_two_hand_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create one-hand dagger procedure
 DROP PROCEDURE IF EXISTS `create_one_hand_dagger` //
 CREATE PROCEDURE create_one_hand_dagger(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_dagger, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create one-hand mace procedure
 DROP PROCEDURE IF EXISTS `create_one_hand_mace` //
 CREATE PROCEDURE create_one_hand_mace(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_mace_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create one-hand sword procedure
 DROP PROCEDURE IF EXISTS `create_one_hand_sword` //
 CREATE PROCEDURE create_one_hand_sword(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_sword_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create one-hand axe procedure
 DROP PROCEDURE IF EXISTS `create_one_hand_axe` //
 CREATE PROCEDURE create_one_hand_axe(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_axe_one_hand, displayid, @inventorytype_one_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create main-hand fist procedure
 DROP PROCEDURE IF EXISTS `create_main_hand_fist` //
 CREATE PROCEDURE create_main_hand_fist(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_fist_weapon, displayid, @inventorytype_main_hand, @sheath_fist_weapon, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create off-hand fist procedure
 DROP PROCEDURE IF EXISTS `create_off_hand_fist` //
 CREATE PROCEDURE create_off_hand_fist(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
@@ -155,56 +144,48 @@ BEGIN
 END//
 
 
--- create staff procedure
 DROP PROCEDURE IF EXISTS `create_staff` //
 CREATE PROCEDURE create_staff (IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_staff, displayid, @inventorytype_two_hand, @sheath_staff, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create wand
 DROP PROCEDURE IF EXISTS `create_wand` //
 CREATE PROCEDURE create_wand(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_wand, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood);
 END//
 
--- create gun 
 DROP PROCEDURE IF EXISTS `create_gun` //
 CREATE PROCEDURE create_gun(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_gun, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create crossbow 
 DROP PROCEDURE IF EXISTS `create_crossbow` //
 CREATE PROCEDURE create_crossbow(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_crossbow, displayid, @inventorytype_ranged, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood);
 END//
 
--- create bow 
 DROP PROCEDURE IF EXISTS `create_bow` //
 CREATE PROCEDURE create_bow(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, @subclass_bow, displayid, @inventorytype_bow, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_wood);
 END//
 
--- create off-hand weapon procedure
 DROP PROCEDURE IF EXISTS `create_off_hand_weapon` //
 CREATE PROCEDURE create_off_hand_weapon(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_weapon, subclass, displayid, @inventorytype_off_hand, @sheath_one_handed, @quality_epic, @itemlevel, @requiredlevel, flags, @material_metal);
 END//
 
--- create off-hand-frill procedure
 DROP PROCEDURE IF EXISTS `create_off_hand_frill` //
 CREATE PROCEDURE create_off_hand_frill(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
     CALL create_item(entry, name, description, @class_armor, @subclass_miscellaneous, displayid, @inventorytype_holdable, @sheath_ranged_and_frill, @quality_epic, @itemlevel, @requiredlevel, flags, @material_liquid);
 END//
 
--- create shield procedure
 DROP PROCEDURE IF EXISTS `create_shield` //
 CREATE PROCEDURE create_shield(IN entry MEDIUMINT(7), IN name VARCHAR(255), IN description VARCHAR(255), IN displayid MEDIUMINT(7), IN flags INT(10))
 BEGIN
