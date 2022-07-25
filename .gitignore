@@ -1,8 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-Converting Tools/BLP Converter/
-Converting Tools/MultiConverter/
-Converting Tools/TXID/
-Converting Tools/WoW.Export/
-Converting Tools/WoW.Export.Other/
-Converting Tools/Spell Editor/
+Converting Tools/BLP Converter/*
+Converting Tools/MultiConverter/*
+Converting Tools/TXID/*
+Converting Tools/WoW.Export/*
+Converting Tools/WoW.Export.Other/*
+Converting Tools/Spell Editor/*
