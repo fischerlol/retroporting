@@ -373,7 +373,7 @@ call create_legs(80057, "Bloodthirsty Gladiator's Dragonhide Legguards", '', @su
 call create_boots(80058, "Bloodthirsty Gladiator's Footguards", '', @subclass_leather, 80058, @flags_default, @class_druid, @material_leather); 
 
 /*
-* Warlock
+* Mage
 */
 call create_helmet(80059, "Bloodthirsty Gladiator's Silk Cowl", '', @subclass_cloth, 80059, @flags_default, @class_mage, @material_cloth); 
 call create_shoulders(80060, "Bloodthirsty Gladiator's Silk Amice", '', @subclass_cloth, 80060, @flags_default, @class_mage, @material_cloth); 
