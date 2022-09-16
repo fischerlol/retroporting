@@ -1,0 +1,5 @@
+GitPython==3.1.27
+keyboard==0.13.5
+py7zr==0.20.0
+rich==12.5.1
+tqdm==4.64.1
