@@ -22,8 +22,9 @@ pip install -r requirements.text
 mysql_config_editor set --login-path=local --host=localhost --user=acore --password
 ```
 Move `Wow_allow_mpq_edits.exe` from the root directory to your World of Warcraft install root directory.
-![](https://github.com/fischerlol/retroporting/blob/main/Image/wow.export.png "Logo Title Text 1")\
-Open `wow.export.exe`in `Converting Tools\WoW.Export` - click on the cog in the top right and change the `Export directory` to `wow.export` in the root directory
+Open `wow.export.exe`in `Converting Tools\WoW.Export` - click on the cog in the top right and change the `Export directory` to `wow.export` in the root directory:
+![](https://github.com/fischerlol/retroporting/blob/main/Image/wow.export.png "wow.export")
+
 ## Config
 
 Configure `the config.py` file in the root directory:
@@ -38,7 +39,7 @@ Open `Retroporting.bat` in the root directory or:
 python script/main.py
 ```
 ## Usage
-![](https://github.com/fischerlol/retroporting/blob/main/Image/Retroporting.png "Logo Title Text 1")\
+![](https://github.com/fischerlol/retroporting/blob/main/Image/Retroporting.png "Retroporting")\
 I. Initial Setup:
 * Clones the latest [patch repo](https://github.com/fischerlol/patch/tree/retroporting) or updates if already cloned.
 * Copies the contents of patch repo to the patch directory in the root directory.
