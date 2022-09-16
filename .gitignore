@@ -8,3 +8,6 @@ Converting Tools/WoW.Export.Other/*
 Converting Tools/Spell Editor/*
 Other Tools/Ladiks MPQ Editor/*
 Other Tools/WDBX Editor/*
+Script/__pycache__/*
+Script/utils/__pycache__/*
+__pycache__/*
