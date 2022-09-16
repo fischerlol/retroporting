@@ -22,6 +22,8 @@ pip install -r requirements.text
 mysql_config_editor set --login-path=local --host=localhost --user=acore --password
 ```
 Move `Wow_allow_mpq_edits.exe` from the root directory to your World of Warcraft install root directory.
+![](https://github.com/fischerlol/retroporting/blob/main/Image/wow.export.png "Logo Title Text 1")\
+Open `wow.export.exe`in `Converting Tools\WoW.Export` - click on the cog in the top right and change the `Export directory` to `wow.export` in the root directory
 ## Config
 
 Configure `the config.py` file in the root directory:
@@ -43,9 +45,9 @@ I. Initial Setup:
 * Runs the makefile to create dbc database and initial data.
 * Unzips the tools.
 W. Launch WoW.Export:
-* Launches WoW Exporter tool which allows you to extract assets from a local World of Warcraft install or blizzard CDN
+* Launches WoW Export tool which allows you to extract assets from a local World of Warcraft install or blizzard CDN
 1. Run MultiConverter:
-* Copies the extracted files from WoW Exporter to `Converting Tools/MultiConverter/wow.export` and runs `FixTXID`/`MultiConverter` on each file.
+* Copies the extracted files from WoW Export to `Converting Tools/MultiConverter/wow.export` and runs `FixTXID`/`MultiConverter` on each file.
 2. Run Helmet Fix:
 * Will run the above process on manually downloaded helmet files (that have been placed in the `wow.export.helmet` directory) from [wow.tools](https://wow.tools/files/) to avoid a helmet particle offset issue with certain helmets.
 3. Run SQL queries and Headless Exporter:
