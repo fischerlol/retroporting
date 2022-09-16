@@ -21,7 +21,7 @@ pip install -r requirements.text
 ```MySQL
 mysql_config_editor set --login-path=local --host=localhost --user=acore --password
 ```
-Move `Wow_allow_mpq_edits.exe` from the root directory to your World of Warcraft install root directory.
+Move `Wow_allow_mpq_edits.exe` from the root directory to your World of Warcraft install root directory.\
 Open `wow.export.exe`in `Converting Tools\WoW.Export` - click on the cog in the top right and change the `Export directory` to `wow.export` in the root directory:
 ![](https://github.com/fischerlol/retroporting/blob/main/Image/wow.export.png "wow.export")
 
