@@ -45,7 +45,7 @@ I. Initial Setup:
 * Clones the latest [patch repo](https://github.com/fischerlol/patch/tree/retroporting) or updates if already cloned.
 * Copies the contents of patch repo to the patch directory in the root directory.
 * Runs the makefile to create dbc database and initial data.
-* Unzips the tools.\
+* Unzips the tools.
 W. Launch WoW.Export:
 * Launches WoW Export tool which allows you to extract assets from a local World of Warcraft install or blizzard CDN
 1. Run MultiConverter:
